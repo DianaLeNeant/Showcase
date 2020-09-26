@@ -1,0 +1,43 @@
+{
+    "port": 84,
+    "protocol": "http",
+
+    "site": {
+        
+    },
+
+    "SSL": {
+
+    },
+
+    "logging": {
+        "consoleOutput" : true,
+        "consoleOutputLevel": ["DEBUG", "ERROR", "WARNING", "INFO", "NOTICE"],
+        "fileOutput": true,
+        "fileOutputLevel": ["DEBUG", "ERROR", "WARNING", "INFO"],
+        
+        "dateTimeFormat": "DD-MM-YYYY HH:mm:ss.S",
+        "outputPath": "logs/",
+        "fileNameDateFormat": "DDMMYYYY",
+        "fileNamePrefix": "Transito-"
+    },
+
+    "uploads": {
+        "accepts": [
+            "image/bmp",
+            "image/gif",
+            "image/jpeg",
+            "image/png",
+            "application/pdf",
+            "text/plain",
+            "application/xml",
+            "text/xml"
+        ],
+        "maxSize": 10485760
+    },
+
+    "artemisa": {
+        "user": "Showcase",
+        "host": "api.artemisa.dev"
+    }
+}
