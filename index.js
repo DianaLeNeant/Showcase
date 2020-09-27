@@ -98,6 +98,25 @@ site.post('/image', modular.Upload.any(), (req, res, next) => {
     });
 });
 
+site.get('/dyn/*', (req, res, next) => {
+    var path = req.path.substr(4);
+    var role = req.session.role ? req.session.role : 'default';
+
+    io.readFile(`template/${path}/${role}.html`, 'utf-8', (ex, data) => {
+        if (ex) {
+            io.readFile('template/notFound.html', 'utf-8', (err, dta) => {
+                if (!err) {
+                    res.send(dta);
+                } else {
+                    res.send('');
+                }
+            });
+        } else {
+            res.send(data);
+        }
+    });
+});
+
 // modular
 modular.LoadServices();
 modular.LoadModules(site);
